@@ -3,10 +3,12 @@ import path from 'path'
 import { glob } from 'glob'
 import CustomClient from "./CustomClient"
 import Event from './Event'
+import Command from "./Command"
+import SubCommand from "./SubCommand"
 
 export default class Handler implements IHandler {
     client: CustomClient
-    
+        
     constructor(client: CustomClient) {
         this.client = client
     }
@@ -29,6 +31,26 @@ export default class Handler implements IHandler {
             //@ts-ignore
             else this.client.on(event.name, execute)
             
+
+            return delete require.cache[require.resolve(file)]
+        })
+    }
+
+    async LoadCommands() {
+        const files = (await glob("build/commands/*.js")).map(filePath => path.resolve(filePath))
+
+        files.map(async ( file: string ) => {
+            const command: Command | SubCommand = new(await import(file)).default(this.client)
+
+            if(!command.name) {
+                return delete require.cache[require.resolve(file)] && console.log(`${file.split("/").pop} doesn't have name`)
+            }
+
+            if(file.split("/").pop()?.split(".")[2]) {
+                return this.client.subcommands.set(command.name, command)
+            }
+
+            this.client.commands.set(command.name, command as Command)
 
             return delete require.cache[require.resolve(file)]
         })
