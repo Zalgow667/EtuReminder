@@ -1,0 +1,51 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+config.json 
+data/config.json
+
+# Build files
+dist/
+build/
+out/
+coverage/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor specific
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+
+# Git
+*.orig
+*.rej
+
+# Misc
+*.bak
+*.swp
+*.tmp
