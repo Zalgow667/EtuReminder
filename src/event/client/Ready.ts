@@ -13,7 +13,7 @@ export default class Ready extends Event {
     }
 
     Execute() {
-        console.log(`${this.client.user?.tag} is now ready`)
+        (`${this.client.user?.tag} is now ready`)
         
         const commands: object[] = this.GetJson(this.client.commands)
         const rest = new REST().setToken(this.client.config.token)
@@ -22,7 +22,6 @@ export default class Ready extends Event {
             body: commands
         })
 
-        console.log(`Successfully set ${setCommands.length} commands`)
     }
 
     private GetJson(commands: Collection<string, Command>): object[] {

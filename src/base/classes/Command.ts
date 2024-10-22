@@ -8,7 +8,7 @@ export default class Command implements ICommandOptions {
     name: string;
     description: string;
     category: Category;
-    options?: ICommandOptions['options']; 
+    options: object; 
     default_member_permission: bigint;
     dm_permission: boolean;
     cooldown: number;
