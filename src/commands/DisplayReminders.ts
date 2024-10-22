@@ -20,12 +20,12 @@ export default class DisplayReminders extends Command {
     async Execute(interaction: ChatInputCommandInteraction) {
         const embed = this.createReminderEmbed();
 
-        await interaction.reply({ embeds: [embed], ephemeral: true });
+        await interaction.reply({ embeds: [embed] });
 
         setInterval(async () => {
             const updatedEmbed = this.createReminderEmbed();
 
-            await interaction.followUp({ embeds: [updatedEmbed], ephemeral: true });
+            await interaction.followUp({ embeds: [updatedEmbed] });
         }, 8000);
 
     }
@@ -33,8 +33,9 @@ export default class DisplayReminders extends Command {
     private createReminderEmbed() {
         const embed = new EmbedBuilder()
             .setColor("#0099ff")
-            .setTitle("📅 **Rappels Actifs**")
+            .setTitle("📅 - **Rappels Actifs**")
             .setDescription("Voici tous vos rappels actifs:");
+
     
         const activeReminders = Reminder.reminders.filter(reminder => {
             const reminderDate = new Date(reminder.timestamp * 1000);
@@ -49,7 +50,9 @@ export default class DisplayReminders extends Command {
                     { name: "📚 Cours", value: `\`${reminder.cours}\``, inline: true },
                     { name: "🗓️ Date de Rendu", value: `<t:${reminder.timestamp}:d> - <t:${reminder.timestamp}:R>`, inline: true },
                     { name: "📝 Sujet", value: `\`${reminder.sujet}\``, inline: true }
-                );
+                )            
+                .setFooter({ text: "EtuReminder", iconURL: "https://static.wikia.nocookie.net/leagueoflegends/images/0/07/Karthus_Render.png/revision/latest?cb=20210522020513" })
+                .setTimestamp();;
             });
         }
     

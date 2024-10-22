@@ -75,6 +75,6 @@ export default class Reminder extends Command {
             timestamp,
         });
         
-        interaction.reply({ embeds: [embed], ephemeral: true });
+        interaction.reply({ embeds: [embed] });
     }
 }
