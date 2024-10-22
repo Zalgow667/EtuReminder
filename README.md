@@ -17,7 +17,7 @@ Pour installer et exécuter **EtuReminder** sur votre machine locale, suivez ces
 1. **Clonez le dépôt :**
 
    ```bash
-   git clone https://github.com/votre-utilisateur/EtuReminder.git
+   git clone https://github.com/Zalgow667/EtuReminder.git
    ```
 
 2. **Naviguez dans le dossier du projet :**
@@ -39,7 +39,7 @@ Pour installer et exécuter **EtuReminder** sur votre machine locale, suivez ces
    - Créez un bot sur le [Portail des développeurs Discord](https://discord.com/developers/applications).
    - Copiez votre token de bot et collez-le dans un fichier `data/config.json` comme suit :
 
-     ```
+    ```json
     {
         "token": "VOTRE_TOKEN",
         "discordClientId": "VOTRE_DISCORD_CLIENT_ID",
@@ -73,7 +73,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des issues ou d
 
 ## Auteurs
 
-- **Votre Nom** - *Zalgow* - [Votre GitHub](https://github.com/zalgow667)
+- **Zalgow667** - *Zalgow* - [Votre GitHub](https://github.com/zalgow667)
 
 ## Licence
 
