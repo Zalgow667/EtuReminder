@@ -26,7 +26,7 @@ export default class DisplayReminders extends Command {
             const updatedEmbed = this.createReminderEmbed();
 
             await interaction.followUp({ embeds: [updatedEmbed], ephemeral: true });
-        }, 3000);
+        }, 8000);
 
     }
 
@@ -35,24 +35,25 @@ export default class DisplayReminders extends Command {
             .setColor("#0099ff")
             .setTitle("📅 **Rappels Actifs**")
             .setDescription("Voici tous vos rappels actifs:");
-
+    
         const activeReminders = Reminder.reminders.filter(reminder => {
             const reminderDate = new Date(reminder.timestamp * 1000);
             return reminderDate.getTime() > Date.now(); 
         });
-
+    
         if (activeReminders.length === 0) {
             embed.addFields({ name: "Aucun rappel actif", value: "Vous n'avez pas de rappels actifs." });
         } else {
             activeReminders.forEach(reminder => {
                 embed.addFields(
-                    { name: "📚 - **Cours**", value: `\`${reminder.cours}\``, inline: true },
-                    { name: "🗓️ - **Date de Rendu**", value: `<t:${reminder.timestamp}:d> - <t:${reminder.timestamp}:R>`, inline: true },
-                    { name: "📝 - **Sujet**", value: `\`${reminder.sujet}\``, inline: true }
+                    { name: "📚 Cours", value: `\`${reminder.cours}\``, inline: true },
+                    { name: "🗓️ Date de Rendu", value: `<t:${reminder.timestamp}:d> - <t:${reminder.timestamp}:R>`, inline: true },
+                    { name: "📝 Sujet", value: `\`${reminder.sujet}\``, inline: true }
                 );
             });
         }
-
+    
         return embed;
     }
+    
 }
