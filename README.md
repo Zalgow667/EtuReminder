@@ -67,10 +67,6 @@ Pour installer et exécuter **EtuReminder** sur votre machine locale, suivez ces
   /display
   ```
 
-## Contribuer
-
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des issues ou des pull requests sur ce dépôt.
-
 ## Auteurs
 
 - **Zalgow667** - *Zalgow* - [Votre GitHub](https://github.com/zalgow667)
